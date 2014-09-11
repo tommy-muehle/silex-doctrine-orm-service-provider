@@ -9,8 +9,9 @@
 
     <target name="init" description="Initialize something">
         <echo>Get composer</echo>
-        <exec dir="${basedir}" executable="curl" failonerror="true">
-            <arg line="-sS https://getcomposer.org/installer | ${php}" />
+        <exec dir="${basedir}" executable="bash" failonerror="true">
+            <arg value="-c" />
+            <arg value="curl -sS https://getcomposer.org/installer | ${php}" />
         </exec>
     </target>
 
