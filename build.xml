@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="check_silex-doctrine-orm-service-provider" default="build" basedir=".">
+
+    <!-- Properties -->
+    <property name="php" value="/usr/local/Cellar/php55/5.5.16/bin/php" />
+    <!-- end -->
+
+    <target name="build" depends="init, vendors, lint, phpunit" />
+
+    <target name="init" description="Initialize something">
+        <echo>Get composer</echo>
+        <exec dir="${basedir}" executable="curl" failonerror="true">
+            <arg line="-sS https://getcomposer.org/installer | ${php}" />
+        </exec>
+    </target>
+
+    <target name="vendors" description="Make composer update and create vendor directory">
+        <echo>Do composer update</echo>
+        <exec dir="${basedir}" executable="${php}" failonerror="true">
+            <arg value="composer.phar" />
+            <arg value="update" />
+        </exec>
+    </target>
+
+    <target name="lint" depends="vendors" description="Perform syntax check of sourcecode files">
+        <apply executable="${php}" failonerror="true">
+            <arg value="-l" />
+            <fileset dir="${basedir}/src">
+                <include name="**/*.php" />
+                <modified />
+            </fileset>
+        </apply>
+    </target>
+
+    <target name="phpunit" depends="vendors" description="Execute phpunit tests">
+        <exec dir="${basedir}" executable="${basedir}/vendor/bin/phpunit" failonerror="true">
+            <arg value="--verbose" />
+            <arg value="--debug" />
+        </exec>
+    </target>
+
+</project>

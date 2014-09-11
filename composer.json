@@ -1,0 +1,37 @@
+{
+    "name": "tm/silex-doctrine-orm-service-provider",
+    "description": "A doctrine orm service provider",
+    "keywords": ["silex", "doctrine", "orm"],
+    "authors": [
+        {
+            "name": "Tommy Muehle",
+            "email": "tommy.muehle@gmail.com",
+            "homepage": "http://www.tommy-muehle.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "doctrine/orm": "~2.4"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "1.*",
+        "phpunit/phpunit": "3.7.*",
+        "silex/silex": "1.2.1"
+    },
+    "version": "1.0.0",
+    "support": {
+        "email": "tommy.muehle@gmail.com"
+    },
+    "type": "library",
+    "autoload": {
+        "psr-0": {
+            "TM": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "TM": "src",
+            "TM\\Tests": "tests"
+        }
+    }
+}
