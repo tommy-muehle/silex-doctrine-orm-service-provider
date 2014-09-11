@@ -8,11 +8,16 @@
     <target name="build" depends="init, vendors, lint, phpunit" />
 
     <target name="init" description="Initialize something">
+
+        <mkdir dir="${basedir}/build" />
+        <mkdir dir="${basedir}/build/logs" />
+
         <echo>Get composer</echo>
         <exec dir="${basedir}" executable="bash" failonerror="true">
             <arg value="-c" />
             <arg value="curl -sS https://getcomposer.org/installer | ${php}" />
         </exec>
+        
     </target>
 
     <target name="vendors" description="Make composer update and create vendor directory">
@@ -37,6 +42,8 @@
         <exec dir="${basedir}" executable="${basedir}/vendor/bin/phpunit" failonerror="true">
             <arg value="--verbose" />
             <arg value="--debug" />
+            <arg value="--log-junit" />
+            <arg value="${basedir}/build/logs/phpunit.xml" />
         </exec>
     </target>
 
