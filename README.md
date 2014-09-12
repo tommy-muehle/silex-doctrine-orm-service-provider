@@ -5,6 +5,11 @@ This provider is a very leightweight doctrine orm service provider for silex pro
 It can only handle simple annotations like @Entity, @Table and so long.
 But in many cases this is sufficient.
 
+Install via composer:
+
+Add ['tm/silex-doctrine-orm-service-provider'](https://packagist.org/packages/tm/silex-doctrine-orm-service-provider) to the dependencies in your projects composer.json file
+and update your dependencies.
+
 A usage example:
 
     $app->register(new TM\Provider\DoctrineORMServiceProvider(), array(
