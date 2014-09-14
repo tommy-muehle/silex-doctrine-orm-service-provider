@@ -1,6 +1,8 @@
 silex-doctrine-orm-service-provider
 ===================================
 
+[![Build Status](https://travis-ci.org/tommy-muehle/silex-doctrine-orm-service-provider.svg?branch=master)](https://travis-ci.org/tommy-muehle/silex-doctrine-orm-service-provider)
+
 This provider is a very leightweight doctrine orm service provider for silex projects.
 It can only handle simple annotations like @Entity, @Table and so long.
 But in many cases this is sufficient.
