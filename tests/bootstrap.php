@@ -15,7 +15,7 @@ $app->register(new DoctrineServiceProvider(), array(
 ));
 $app->register(new DoctrineORMServiceProvider(), array(
     'orm.options' => array(
-        'proxies_dir' => null,
+        'proxies_dir' => __DIR__ . '/TM/Proxies',
         'entity_dirs' => array(
             array('path' => __DIR__ . '/TM/Fixtures/Foo/Entity'),
             array('path' => __DIR__ . '/TM/Fixtures/Bar/Entity'),

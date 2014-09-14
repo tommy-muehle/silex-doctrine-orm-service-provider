@@ -43,4 +43,11 @@ class DoctrineORMServiceProviderTest extends \PHPUnit_Framework_TestCase
             $this->assertContains($classMetaData->getName(), $expectedClassesNames);
         }
     }
+
+    public function testProxiesDirectoryIsSet()
+    {
+        $config = $this->em->getConfiguration();
+
+        $this->assertEquals('Proxies', basename($config->getProxyDir()));
+    }
 }
